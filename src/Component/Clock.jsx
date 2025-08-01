@@ -4,23 +4,6 @@ import moment from "moment";
 export default function Clock() {
   const divref = useRef();
 
-  const spliter = (str, sep) => {
-    var value = [];
-    let i = 0;
-    let length = sep.len;
-    for (let chr of str) {
-      if (chr === sep) {
-        i += 1;
-        continue;
-      }
-      if (value[i]) value[i] += chr;
-      else value[i] = chr;
-    }
-    for (let i of value) {
-      // console.log(i);
-    }
-  };
-
   const displayTime = () => {
     if (divref.current) {
       var time = moment().format("HH:mm:ss");
@@ -29,8 +12,6 @@ export default function Clock() {
       document.title = time;
     }
   };
-
-  spliter("timer", "m");
 
   useEffect(() => {
     displayTime();
